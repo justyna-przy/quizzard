@@ -1,0 +1,19 @@
+
+#RadioButton .radio{
+     -fx-border-width: 1px;
+     -fx-border-color: -fx-darkest-grey-color;
+     -fx-background-color: #fffaf0;
+     -fx-background-image: null;
+     -fx-border-radius: 15px;
+     -fx-padding: 3px;
+}
+
+/* Define styles for when the RadioButton is hovered */
+#RadioButton:hover {
+    -fx-background-color
+}
+
+/* Define styles for when the RadioButton is selected/pressed */
+#RadioButton:selected {
+    -fx-mark-color:  #9D8DF1;
+}
