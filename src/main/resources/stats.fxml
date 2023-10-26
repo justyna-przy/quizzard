@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Stats">
+   <children>
+      <BarChart layoutX="14.0" prefHeight="215.0" prefWidth="404.0">
+        <xAxis>
+          <CategoryAxis label="User vs All Users" prefHeight="24.0" prefWidth="339.0" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Score" minorTickCount="1" side="LEFT" tickLabelGap="1.0" upperBound="6.0" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>
