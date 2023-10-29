@@ -7,6 +7,8 @@ public class QuestionData {
     private List<String> options;
     private String correctAnswer;
 
+
+
     public QuestionData(String question, List<String> options, String correctAnswer) {
         this.question = question;
         this.options = options;
@@ -24,4 +26,6 @@ public class QuestionData {
     public String getCorrectAnswer() {
         return correctAnswer;
     }
+
+
 }
