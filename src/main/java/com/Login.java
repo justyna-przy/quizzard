@@ -2,6 +2,7 @@ package com;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
+import com.Classes.QuizModel;
 import com.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
