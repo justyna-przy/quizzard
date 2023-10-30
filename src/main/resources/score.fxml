@@ -8,11 +8,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #E6E6E9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.QuizController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #E6E6E9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ScoreController">
    <stylesheets>
       <URL value="@CSS/styles.css" />
    </stylesheets>
@@ -57,22 +58,47 @@
       <AnchorPane prefHeight="650.0" prefWidth="1059.0" BorderPane.alignment="CENTER">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="FLORALWHITE" height="400.0" layoutX="296.0" layoutY="115.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-: #FFFAF0;" styleClass="myRadioButton" width="400.0" />
-            <ImageView fitHeight="291.0" fitWidth="135.0" layoutX="66.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="261.0" fitWidth="251.0" layoutX="180.0" layoutY="292.0">
+            <Circle fill="#9d8df1" layoutX="487.0" layoutY="380.0" radius="74.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <ImageView fitHeight="261.0" fitWidth="251.0" layoutX="162.0" layoutY="286.0">
                <image>
                   <Image url="@quizzard1.png" />
                </image>
             </ImageView>
-            <Text layoutX="341.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations apprentice!" wrappingWidth="334.687255859375">
+            <Text fill="#5a02b2" layoutX="296.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations Apprentice!" textAlignment="CENTER" wrappingWidth="395.4870910644531">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Calibri Bold" size="36.0" />
                </font>
             </Text>
-            <Label fx:id="score" layoutX="360.0" layoutY="275.0" prefHeight="35.0" prefWidth="272.0" text="Your Score: x out of 6">
+            <Label fx:id="score" layoutX="469.0" layoutY="337.0" prefHeight="82.0" prefWidth="38.0" textAlignment="CENTER" textFill="#5a02b2">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Calibri Bold" size="72.0" />
                </font>
             </Label>
+            <Button fx:id="scoreButton" layoutX="415.0" layoutY="240.0" mnemonicParsing="false" onAction="#revealScore" style="-fx-background-color: #5A02B2; -fx-border-color: #ffd858; -fx-border-width: 1;" text="Reveal Score" textFill="#ffd858">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="445.0" layoutY="470.0" text="Out of 6" textFill="#9d8df1">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button id="nextButton" fx:id="nextStats" layoutX="646.0" layoutY="452.0" mnemonicParsing="false" onAction="#onNextStatsButtonClicked" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 45px;" text="Next" textFill="FLORALWHITE">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <stylesheets>
+                  <URL value="@CSS/styles.css" />
+                  <URL value="@CSS/styles.css" />
+               </stylesheets>
+            </Button>
          </children>
       </AnchorPane>
    </center>

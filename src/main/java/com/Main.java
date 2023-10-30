@@ -38,4 +38,10 @@ public class Main extends Application {
         launch(args);
 
     }
+
+    // TODO: make the error message change when password is too long
+    // TODO: difficulties rather than subject
+    // TODO: document?
+    // TODO: Stats method
+    // TODO: Look over code and comment
 }

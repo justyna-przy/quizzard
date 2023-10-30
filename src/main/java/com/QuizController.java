@@ -2,6 +2,8 @@ package com;
 
 import com.Classes.QuizModel;
 import com.Classes.QuestionData;
+import com.Classes.ScoreHandler;
+import com.ScoreController;
 import com.Classes.Score;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -80,7 +82,7 @@ public class QuizController {
                 opt4.setText(options.get(3));
 
             } else {
-
+                ScoreHandler.setScore(score.getScore());
                 scorePage();
                 //change to score here once you run out of Q's
             }
@@ -90,9 +92,16 @@ public class QuizController {
 
     }
 
+
+
+
     private void scorePage() throws IOException {
         Main m = new Main();
         m.changeScene("/score.fxml");
+
+
+        // Pass the user's score to ScoreController
+
     }
 
 
