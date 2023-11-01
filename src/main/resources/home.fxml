@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #E6E6E9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #E6E6E9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.HomeController">
    <top>
       <AnchorPane prefHeight="129.0" prefWidth="1024.0" style="-fx-background-color: #5A02B2;" BorderPane.alignment="CENTER">
          <children>
@@ -38,26 +38,43 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="130.0" layoutY="156.0" mnemonicParsing="false" prefHeight="390.0" prefWidth="231.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Button">
+            <Button fx:id="randomBtn" layoutX="80.0" layoutY="168.0" mnemonicParsing="false" onAction="#startRandom" prefHeight="390.0" prefWidth="206.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Random" textFill="#9d8df1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <font>
+                  <Font name="Calibri Bold" size="36.0" />
+               </font>
             </Button>
-            <Button layoutX="640.0" layoutY="156.0" mnemonicParsing="false" prefHeight="390.0" prefWidth="231.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Button">
+            <Button fx:id="subjectBtn" layoutX="518.0" layoutY="168.0" mnemonicParsing="false" onAction="#startSubject" prefHeight="390.0" prefWidth="206.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Subject" textFill="#9d8df1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <font>
+                  <Font name="Calibri Bold" size="36.0" />
+               </font>
             </Button>
-            <Button layoutX="385.0" layoutY="156.0" mnemonicParsing="false" prefHeight="390.0" prefWidth="231.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Button">
+            <Button fx:id="difficultyBtn" layoutX="299.0" layoutY="168.0" mnemonicParsing="false" onAction="#startDifficulty" prefHeight="390.0" prefWidth="206.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Difficulty" textFill="#9d8df1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <font>
+                  <Font name="Calibri Bold" size="36.0" />
+               </font>
             </Button>
             <Text fill="#5a02b2" layoutX="241.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your Mode!" textAlignment="CENTER">
                <font>
                   <Font name="Calibri Bold" size="64.0" />
                </font>
             </Text>
+            <Button fx:id="survivalBtn" layoutX="737.0" layoutY="168.0" mnemonicParsing="false" onAction="#startSurvival" prefHeight="390.0" prefWidth="206.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Survival" textFill="#9d8df1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Calibri Bold" size="36.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </center>

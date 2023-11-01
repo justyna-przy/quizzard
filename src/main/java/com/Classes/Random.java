@@ -1,4 +1,4 @@
 package com.Classes;
 
-public class Random extends Quiz{
+public class Random{
 }

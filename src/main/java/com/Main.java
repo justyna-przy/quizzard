@@ -27,11 +27,29 @@ public class Main extends Application {
         stage.show();
     }
 
-    public void changeScene(String fxml) throws IOException{
+    public void changeScene(String fxml, String mode, String difficulty, String topic) throws IOException{
         //this method changes the current scene to a different scene
         //it maintains the stage and the stage width and height
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        stg.getScene().setRoot(pane);
+
+        if (fxml.equals("/quiz.fxml")) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent root = loader.load();
+            QuizController controller = loader.getController();
+            controller.initialize(mode, difficulty, topic); // Pass the mode here
+            stg.getScene().setRoot(root);
+        }else if (fxml.equals("/stats.fxml")){
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent root = loader.load();
+            StatsController controller = loader.getController();
+            controller.initializeStats();
+            stg.getScene().setRoot(root);
+
+        } else {
+            stg.getScene().setRoot(pane);
+        }
+
     }
 
     public static void main(String[] args) {

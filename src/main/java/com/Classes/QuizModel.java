@@ -1,22 +1,22 @@
 package com.Classes;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.Random;
+
 public class QuizModel {
 
-    private List<QuestionData> questions;
-    private int currentIndex;
+    protected List<QuestionData> questions;
+    protected int currentIndex;
 
     public QuizModel() {
         // Load questions from the CSV file or any other data source.
         questions = loadFromCSV();
         Collections.shuffle(questions); // Shuffle questions.
         currentIndex = 0;
+
+        System.out.println("TOTAL QUESTIONS LOADED FROM CSV: " + questions.size());
     }
 
     public QuestionData getNextQuestion() {
@@ -27,21 +27,25 @@ public class QuizModel {
     }
 
 
+
+
     private List<QuestionData> loadFromCSV(){
         List<QuestionData> questionList = new ArrayList<>();
         try {
-            String filePath = "src/main/resources/q.csv";
+            String filePath = "src/main/resources/questionbank.csv";
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
 
             String line;
             while((line = reader.readLine()) != null){
                 String[] parts = line.split(",");
-                if (parts.length == 5) {
+                if (parts.length == 7) {
                     String question = parts[0].trim();
                     String ans1 = parts[1].trim();
                     String ans2 = parts[2].trim();
                     String ans3 = parts[3].trim();
                     String ans4 = parts[4].trim();
+                    String topic = parts[5].trim();
+                    String diff = parts[6].trim();
 
                     List<String> options = new ArrayList<>();
                     options.add(ans1);
@@ -53,8 +57,12 @@ public class QuizModel {
                     Collections.shuffle(options);
 
                     // Create a QuestionData object and add it to the list.
-                    QuestionData questionData = new QuestionData(question, options, ans1);
+                    QuestionData questionData = new QuestionData(question, options, ans1, diff, topic);
                     questionList.add(questionData);
+                }
+                else {
+                    System.out.println("MISSING COLUMNS?!");
+                    System.out.println(Arrays.toString(parts));
                 }
             }
             reader.close();

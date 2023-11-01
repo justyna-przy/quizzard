@@ -1,10 +1,8 @@
 package com;
 
-import com.Classes.QuizModel;
-import com.Classes.QuestionData;
-import com.Classes.ScoreHandler;
+import com.Classes.*;
 import com.ScoreController;
-import com.Classes.Score;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -33,43 +31,83 @@ public class QuizController {
     private ToggleGroup optionToggle;
 
     private QuizModel quizModel; // Add an instance of the QuizModel
+    private QuizModel difficultModel;
+    private QuizModel topicModel;
 
     private QuestionData currentQuestion;
+
+    @FXML
+    private Button exit, statsBtn, homeBtn;
+
+    public void goHome(ActionEvent event){
+
+    }
+
+
+    public void goToStats(ActionEvent event) {
+    }
+
+
+    public void exitApp(ActionEvent event){
+        Platform.exit();
+    }
 
     Score score = new Score();
     String userChoice;
     int questionNum = 1;
 
+    QuizModel quizMode;
+
 
     @FXML
-    private void initialize() {
-        quizModel = new QuizModel(); // Initialize the QuizModel
-        loadQuestion();
+    public void initialize(String mode, String difficulty, String topic) {
+        if ("Random".equals(mode)) {
+            quizModel = new QuizModel(); // Initialize the QuizModel for random mode
+            setQuizModel(quizModel);
+            loadQuestion(quizModel);
+        } else if ("Difficulty".equals(mode)) {
+            difficultModel = new DifficultModel(difficulty); // Initialize the DifficultModel for difficulty mode
+            setQuizModel(difficultModel);
+            loadQuestion(difficultModel);
+        } else if ("Topic".equals(mode)) {
+            topicModel = new TopicModel(topic); // Initialize the DifficultModel for difficulty mode
+            setQuizModel(topicModel);
+            loadQuestion(topicModel);
+        } else if ("Survival".equals(mode)) {
+            // Initialize the quiz model for survival mode, if needed
+            // Add your logic here
+        }
 
+
+
+    }
+
+    private void setQuizModel(QuizModel quizModel) {
+        quizMode = quizModel;
     }
 
 
     @FXML
-    private void onNextButtonClicked(ActionEvent event) {
+    private void onNextButtonClicked(ActionEvent event) throws IOException {
         if(userChoice == null){
             return;
         }
-        if(userChoice.equals(currentQuestion.getCorrectAnswer())){
+        else if(userChoice.equals(currentQuestion.getCorrectAnswer())){
             score.incScore();
             System.out.println("new score: " + score.getScore());
         }
         userChoice = null;
         questionNum++;
-        loadQuestion();
+        loadQuestion(quizMode);
     }
 
 
 
-    private void loadQuestion(){
+    public void loadQuestion(QuizModel model){
 
         try {
             resetRadioButton();
-            currentQuestion = quizModel.getNextQuestion();
+            currentQuestion = model.getNextQuestion();
 
             if (currentQuestion != null) {
                 String questionText = currentQuestion.getQuestion();
@@ -87,7 +125,7 @@ public class QuizController {
                 //change to score here once you run out of Q's
             }
         }catch (Exception e){
-
+            e.printStackTrace();
         }
 
     }
@@ -97,7 +135,7 @@ public class QuizController {
 
     private void scorePage() throws IOException {
         Main m = new Main();
-        m.changeScene("/score.fxml");
+        m.changeScene("/score.fxml", null, null, null);
 
 
         // Pass the user's score to ScoreController

@@ -1,0 +1,22 @@
+﻿What is the opposite of true in Boolean logic?,False ,True  ,Binary,Undefined,Discrete,easy
+"In logic, what does the symbol 'Â¬' represent?",Negation (NOT),Bitwise NOT,Recursion,Memory Leak,Discrete,easy
+"In propositional logic, what is tautology?",Always true statement,A variable assignment,An algorithm,An assembly language,Discrete,Intermed
+What is the cardinality of the empty set (âˆ…)?,Zero,Minus One,Five terabytes,Two,Discrete,medium
+Which of the following is the Universal Quantifier symbol used in predicate logic?,âˆ€,â†’,x,âˆƒ,Discrete,medium
+What is the result of the logical OR operation (disjunction) when at least one operand is true?,TRUE,Undefined,Null,Segmentation fault,Discrete,hard
+What is the power set of a set with n elements?,2^n,n factorial,Logarithmic,Quantum computing,Discrete,hard
+"Express ""All dogs bark"" using predicate logic.",âˆ€x (Dog(x) â†’ Bark(x)),,âˆƒx (Cat(x) â†’ Woof(x)),"XOR (Dog, Bark)",Discrete,hard
+What is a decision diagram in computer science?,A data structure used for representing Boolean functions or sets efficiently.,A type of graph used for social network analysis.,A software tool for representing sets.,A technique for compressing image files.,Compsci,easy
+"In decision diagrams, what does a terminal node (leaf) typically represent?",A constant Boolean value (0 or 1).,A network switch.,A software bug.,A physical storage device.,Compsci,easy
+What does BNF stand for?,Backus-Naur Form,Basic Number Framework.,Binary Notation for Functions.,Backus Normalized Format.,Compsci,easy
+Explain the concept of distributivity in lattices?,It means that the lattice operations satisfy the distributive law: a âˆ§ (b âˆ¨ c) = (a âˆ§ b) âˆ¨ (a âˆ§ c).,The process of optimizing code for execution.,A technique for reducing network latency.,It means that the lattice operations satisfy the distributive law: a v (b âˆ¨ c) = (a v b) âˆ¨ (a v c).,Compsci,medium
+What is a partial order?,"A binary relation that is reflexive, antisymmetric, and transitive.",A sequence of actions without any specific order.,A relation that is always symmetric and transitive.,A relation that doesn't follow any specific rules or criteria.,Compsci,medium
+What does ::= mean in BNF?,"Represent a production rule, where it signifies ""is defined as"" or ""produces.""",Equals to,Represents â€˜To the exclusion ofâ€™,It is notation for the Cardinal Rule.,Compsci,hard
+"In a lattice, what is the join operation?",It computes the least upper bound of two elements.,Merging two computer programs.,A data encryption technique.,A database query operation.,Compsci,hard
+What is the primary function of a computer's Central Processing Unit (CPU)?,To execute instructions and perform computations.,It is an operating system.,To connect the graphics card with the hardware.,To process Excel files.,Comporg,easy
+Which of the following is correct and in correct order?,Fetch-Decode-Execute Cycle.,Decode-Fetch-Execute Cycle.,Execute-Decode-Fetch Cycle.,Execute-Fetch-Decode Cycle.,Comporg,easy
+"Define ""Von Neumann architecture"" in computer organization.",A computer architecture that uses a single memory for both data and instructions.,It is an inefficient way to organize memory.,It is a type of bus.,It is in charge of efficiently deleting cache.,Comporg,medium
+What are the common number systems used in computer science.,"Binary, decimal, octal, and hexadecimal.","Binary, double, octal, and integer.","Float, double, integer, and long.","Boolean, decimal, octal, and hexadecimal.",Comporg,medium
+The Operating system machine level is also known as which level?,Level 4,Level 1,Level 3,Level 5,Comporg,medium
+Convert the binary number 1101 to decimal.,13,14,15,16,Comporg,hard
+What is Moore's Law?,The number of transistors on a microchip doubles approximately every two years.,The assertion that computer performance remains constant over time.,The idea that computer memory capacity decreases as technology advances.,The principle that software complexity should increase at a steady rate.,Comporg,hard

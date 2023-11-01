@@ -1,6 +1,390 @@
 package com.Classes;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Stats {
 
+
+    /*private String username;
+
+    public Stats(String username){
+        this.username = username;
+
+    }
+
+    public String getYourSD() {
+        return yourSD;
+    }
+
+    public void setYourSD(String yourSD) {
+        this.yourSD = yourSD;
+    }
+
+    public String getYourMedian() {
+        return yourMedian;
+    }
+
+    public void setYourMedian(String yourMedian) {
+        this.yourMedian = yourMedian;
+    }
+
+    public String getYourMean() {
+        return yourMean;
+    }
+
+    public void setYourMean(String yourMean) {
+        this.yourMean = yourMean;
+    }
+
+    public String getUserSD() {
+        return userSD;
+    }
+
+    public void setUserSD(String userSD) {
+        this.userSD = userSD;
+    }
+
+    public String getUserMedian() {
+        return userMedian;
+    }
+
+    public void setUserMedian(String userMedian) {
+        this.userMedian = userMedian;
+    }
+
+    public String getUserMean() {
+        return userMean;
+    }
+
+    public void setUserMean() {
+        this.userMean = calcUserMean;
+    }
+
+
+     */
+
+
+    //TODO add to controller to display stats
+    //TODO make csv file for scores
+    private List<UserScores> scores;
+    public Stats(){
+        scores = loadCSVScores();
+    }
+
+    public List<UserScores> loadCSVScores() {
+        List<UserScores> userScoreList = new ArrayList<>();
+        try{
+            String filePath = "src/main/resources/stats.csv"; //TODO put path
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+
+            String line;
+            while((line = reader.readLine()) != null) {
+
+                List<Double> yourScores = new ArrayList<>();
+                List<String> parts = List.of(line.split(","));
+                String username = parts.get(0).trim();
+                double userTotal = 0;
+                for (int i = 1; i < parts.size(); i++){
+
+                    String trimmedScoreStr = parts.get(i).trim();
+                    Double trimmedScore = Double.parseDouble(trimmedScoreStr);
+                    yourScores.add(trimmedScore);
+                    userTotal = userTotal + trimmedScore;
+
+
+
+                }
+
+
+                UserScores userScores = new UserScores(username, yourScores, userTotal);
+                userScoreList.add(userScores);
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        System.out.println(userScoreList + " ");
+        return userScoreList;
+    }
+
+    public List<Double> getAllUserScoreList() {
+        List<Double> innerScores = new ArrayList<>();
+        for (UserScores userScore : scores) {
+            for (double score : userScore.getUserScores()) {
+                innerScores.add(score);
+            }
+        }
+        return innerScores;
+    }
+
+
+    public double calcUserMean() {
+        List<Double> userScoreList = getAllUserScoreList();
+
+
+        List<Double> innerScores = new ArrayList<>();
+
+        for (UserScores userScore : scores) {
+
+            for (double score : userScore.getUserScores()) {
+
+                innerScores.add(score);
+
+            }
+
+        }
+
+
+
+        double sumOfScores = 0.0;
+
+        for (double score : innerScores) {
+
+            sumOfScores += score;
+
+        }
+
+
+
+        int numberScores = innerScores.size();
+
+        double meanAverage = sumOfScores / numberScores;
+
+
+        DecimalFormat df = new DecimalFormat("0.0");
+        double roundedValue = Double.parseDouble(df.format(meanAverage));
+        return roundedValue;
+    }
+
+
+    public double calcUserMedian() {
+
+        List<Double> userScoreList = getAllUserScoreList();
+
+
+
+        userScoreList.sort(Double::compareTo);
+
+
+
+        int size = userScoreList.size();
+
+
+
+        // If the number of scores is odd, return the middle value
+
+        if (size % 2 != 0) {
+
+            DecimalFormat df = new DecimalFormat("0.0");
+            double roundedValue = Double.parseDouble(df.format(userScoreList.get(size / 2)));
+            return roundedValue;
+
+
+        } else {
+
+            // If the number of scores is even, calculate the average of the two middle values
+
+            int middle = size / 2;
+
+            double median = (userScoreList.get(middle - 1) + userScoreList.get(middle)) / 2.0;
+
+            DecimalFormat df = new DecimalFormat("0.0");
+            double roundedValue = Double.parseDouble(df.format(median));
+            return roundedValue;
+
+
+        }
+
+
+
+    }
+
+
+
+    public double calcUserSD() {
+
+        List<Double> userScoreList = getAllUserScoreList();
+
+        //JUSTYNA - CAN I USE THE MEAN FROM ABOVE OR NOT?
+
+
+        double mean = calcUserMean(); // Calculate the mean first
+
+
+
+        // Calculate the sum of squared differences
+
+        double sumOfSquaredDifferences = 0.0;
+
+        for (double score : userScoreList) {
+
+            double difference = score - mean;
+
+            sumOfSquaredDifferences += difference * difference;
+
+        }
+
+
+
+        // Calculate the variance (average of squared differences)
+
+        double variance = sumOfSquaredDifferences / userScoreList.size();
+
+
+
+        // Calculate the standard deviation (square root of variance)
+
+        double standardDeviation = Math.sqrt(variance);
+
+        DecimalFormat df = new DecimalFormat("0.0");
+        double roundedValue = Double.parseDouble(df.format(standardDeviation));
+        return roundedValue;
+
+
+
+    }
+
+
+
+
+
+
+    public List<Double> findYourScore(String yourUsername){
+        List<Double> yourScores = new ArrayList<>();
+        try{
+            String filePath = "C:\\Users\\shado\\OneDrive - University of Limerick\\stats.csv";
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+
+            String line;
+            while((line = reader.readLine()) != null) {
+
+
+                List<String> parts = List.of(line.split(","));
+                String username = parts.get(0).trim();
+                if(username.equals(yourUsername)) {
+                    for (int i = 1; i < parts.size(); i++){
+
+                        String trimmedScoreStr = parts.get(i).trim();
+                        Double trimmedScore = Double.parseDouble(trimmedScoreStr);
+                        yourScores.add(trimmedScore);
+
+
+
+
+                    }
+
+                }
+
+
+
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return yourScores;
+
+    }
+
+
+    public double findYourMean(List<Double> yourScores) {
+
+        double sum = 0.0;
+
+        for (Double score : yourScores) {
+
+            sum += score;
+
+        }
+        DecimalFormat df = new DecimalFormat("0.0");
+        double roundedValue = Double.parseDouble(df.format(sum / yourScores.size()));
+        return roundedValue;
+
+    }
+
+
+
+    public double findYourMedian(List<Double> yourScores) {
+
+        List<Double> sortedScores = new ArrayList<>(yourScores);
+
+        sortedScores.sort(Double::compareTo);
+
+
+
+        int size = sortedScores.size();
+
+
+
+        // If the number of scores is odd, return the middle value
+
+        if (size % 2 != 0) {
+
+            DecimalFormat df = new DecimalFormat("0.0");
+            double roundedValue = Double.parseDouble(df.format(sortedScores.get(size / 2)));
+            return roundedValue;
+
+        } else {
+
+            // If the number of scores is even, calculate the average of the two middle values
+
+            int middle = size / 2;
+
+            double median = (sortedScores.get(middle - 1) + sortedScores.get(middle)) / 2.0;
+
+            DecimalFormat df = new DecimalFormat("0.0");
+            double roundedValue = Double.parseDouble(df.format(median));
+            return roundedValue;
+        }
+
+    }
+
+
+
+    // Calculate the standard deviation for an individual user
+
+    public double findYourSD(List<Double> yourScores) {
+
+        double mean = findYourMean(yourScores); // Calculate the mean first
+
+
+
+        // Calculate the sum of squared differences
+
+        double sumOfSquaredDifferences = 0.0;
+
+        for (Double score : yourScores) {
+
+            double difference = score - mean;
+
+            sumOfSquaredDifferences += difference * difference;
+
+        }
+
+
+
+        // Calculate the variance (average of squared differences)
+
+        double variance = sumOfSquaredDifferences / yourScores.size();
+
+
+
+        // Calculate the standard deviation (square root of variance)
+
+        double standardDeviation = Math.sqrt(variance);
+
+
+        DecimalFormat df = new DecimalFormat("0.0");
+        double roundedValue = Double.parseDouble(df.format(standardDeviation));
+        return roundedValue;
+
+    }
 
 }

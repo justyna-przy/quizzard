@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #E6E6E9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.DifficultyController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #E6E6E9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.SubjectController">
    <top>
       <AnchorPane prefHeight="129.0" prefWidth="1024.0" style="-fx-background-color: #5A02B2;" BorderPane.alignment="CENTER">
          <children>
@@ -41,33 +41,33 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="intermed" layoutX="409.0" layoutY="168.0" mnemonicParsing="false" onAction="#selectIntermedd" prefHeight="390.0" prefWidth="206.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Intermediate" textFill="#9d8df1">
+            <Button fx:id="compsci" layoutX="409.0" layoutY="168.0" mnemonicParsing="false" onAction="#selectCompsci" prefHeight="390.0" prefWidth="206.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Computer Science" textAlignment="CENTER" textFill="#9d8df1" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Calibri Bold" size="35.0" />
+               </font>
+            </Button>
+            <Button fx:id="dmaths" layoutX="190.0" layoutY="168.0" mnemonicParsing="false" onAction="#selectDMaths" prefHeight="390.0" prefWidth="206.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Discrete Maths" textAlignment="CENTER" textFill="#9d8df1" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Calibri Bold" size="36.0" />
+               </font>
+            </Button>
+            <Text fill="#5a02b2" layoutX="257.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your Topic!" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri Bold" size="64.0" />
+               </font>
+            </Text>
+            <Button fx:id="comporg" layoutX="628.0" layoutY="168.0" mnemonicParsing="false" onAction="#selectComporg" prefHeight="390.0" prefWidth="206.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Computer Organisation" textAlignment="CENTER" textFill="#9d8df1" wrapText="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
                   <Font name="Calibri Bold" size="29.0" />
-               </font>
-            </Button>
-            <Button fx:id="novice" layoutX="190.0" layoutY="168.0" mnemonicParsing="false" onAction="#selectNovice" prefHeight="390.0" prefWidth="206.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Novice" textFill="#9d8df1">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Calibri Bold" size="36.0" />
-               </font>
-            </Button>
-            <Text fill="#5a02b2" layoutX="209.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your Difficulty!" textAlignment="CENTER">
-               <font>
-                  <Font name="Calibri Bold" size="64.0" />
-               </font>
-            </Text>
-            <Button fx:id="expert" layoutX="628.0" layoutY="168.0" mnemonicParsing="false" onAction="#selectExpert" prefHeight="390.0" prefWidth="206.0" style="-fx-background-color: #FFFAF0; -fx-border-color: #9D8DF1; -fx-border-width: 5;" text="Expert" textFill="#9d8df1">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Calibri Bold" size="36.0" />
                </font>
             </Button>
          </children>

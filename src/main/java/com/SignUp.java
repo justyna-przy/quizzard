@@ -14,7 +14,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -52,7 +53,7 @@ public class SignUp extends JFrame {
             if(pass.equals(confirm) && pass.length() < 30){
                 writeSignup(usernm, pass);
                 Main n = new Main();
-                n.changeScene("/login.fxml");
+                n.changeScene("/login.fxml", null, null, null);
 
 
             }else{
@@ -62,7 +63,7 @@ public class SignUp extends JFrame {
 
 
 
-        public void writeSignup(String username, String password) {
+        /*public void writeSignup(String username, String password) {
             try {
                 FileWriter fw = new FileWriter("login.txt", true);
                 fw.write(username+ "\t" + password + "\n"); //typed username and password will be written to login.txt
@@ -72,9 +73,51 @@ public class SignUp extends JFrame {
             }catch (Exception e){
                 e.printStackTrace();
             }
+        }*/
+
+    public void writeSignup(String username, String password) {
+        List<String> wordsInFirstColumn = new ArrayList<>();
+
+        try {
+            FileWriter fw = new FileWriter("login.txt", true);
+            fw.write(username + "\t" + password + "\n"); //typed username and password will be written to login.txt
+            // "\n" writes the next data to new line
+            fw.close();
+
+            //writing to STATS.CSV
+            FileWriter fw2 = new FileWriter("src/main/resources/stats.csv", true);
+            fw2.write("\n" + username + ","); //typed username and password will be written to stats.csv
+
+            fw2.close();
+//----------
+//          //writes score to csv
+//          //TODO write score to csv from ----------------------------------------------------------
+            int scoreCount = 5;
+            FileWriter fw3 = new FileWriter("src/main/resources/stats.csv", true);
+
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/stats.csv"));
+            String line;
+
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length > 0) {
+                    String usernameInStorage = parts[0].trim(); // Assign value to 'usernameInStorage'
+                    wordsInFirstColumn.add(usernameInStorage);
+                }
+
+                for (String word : wordsInFirstColumn) {
+                    if (word.equals(username)) {
+                        fw3.write(scoreCount + ",");
+                        break;
+                    }
+                }
+            }
+            fw3.close();
+
+        }catch (Exception e){
         }
-
-
+    }
 
 
 

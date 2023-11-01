@@ -40,7 +40,7 @@ public class Login{
 
     public void userSignIn(ActionEvent event) throws IOException{
         Main m = new Main();
-        m.changeScene("/signin.fxml");
+        m.changeScene("/signin.fxml", null, null, null);
     }
 
     private void checkLogin() throws IOException{
@@ -72,7 +72,7 @@ public class Login{
 
         if(matched){
             Main m = new Main();
-            m.changeScene("/quiz.fxml");
+            m.changeScene("/home.fxml", null, null, null);
 
 
 

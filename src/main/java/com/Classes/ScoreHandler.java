@@ -10,4 +10,6 @@ public class ScoreHandler {
     public static int getScore() {
         return storedScore;
     }
+
+    //TODO write score to CSV
 }
