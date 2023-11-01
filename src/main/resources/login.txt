@@ -1,17 +1,10 @@
-admin	password
+admin password
 Justyna	Twilight
 Tom	Password	
 Shadow	Shadow123
 kelly	password
 admin	password
-	
-	
-	
-	
-	
-	
-Luna	Luna
-	
-	
-alisia	sina
 Bob	ashe
+ss	ss
+aa	aa
+bb	bb

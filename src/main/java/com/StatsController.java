@@ -47,6 +47,8 @@ public class StatsController {
         userMean.setText(String.valueOf(quizStats.calcUserMean()));
         userMedian.setText(String.valueOf(quizStats.calcUserMedian()));
         userSD.setText(String.valueOf(quizStats.calcUserSD()));
+
+        //bug
         List<Double> yourScores = quizStats.findYourScore(Main.getCurrentUser().getUsername());
         yourMean.setText(String.valueOf(quizStats.findYourMean(yourScores)));
         yourMedian.setText(String.valueOf(quizStats.findYourMedian(yourScores)));
