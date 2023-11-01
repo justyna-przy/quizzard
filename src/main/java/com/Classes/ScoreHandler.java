@@ -5,6 +5,9 @@ import com.Main;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+/*
+    This class handles and stores the scores
+ */
 
 public class ScoreHandler {
     private static int storedScore = 0;

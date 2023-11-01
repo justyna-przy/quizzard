@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.List;
 
 public class StatsController {
@@ -19,12 +20,15 @@ public class StatsController {
     @FXML
     private Button exit, statsBtn, homeBtn;
 
-    public void goHome(ActionEvent event){
-
+    public void goHome(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("/home.fxml", null, null, null);
     }
 
 
-    public void goToStats(ActionEvent event) {
+    public void goToStats(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("/stats.fxml", null, null, null);
     }
 
 
@@ -48,7 +52,6 @@ public class StatsController {
         userMedian.setText(String.valueOf(quizStats.calcUserMedian()));
         userSD.setText(String.valueOf(quizStats.calcUserSD()));
 
-        //bug
         List<Double> yourScores = quizStats.findYourScore(Main.getCurrentUser().getUsername());
         yourMean.setText(String.valueOf(quizStats.findYourMean(yourScores)));
         yourMedian.setText(String.valueOf(quizStats.findYourMedian(yourScores)));

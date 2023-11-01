@@ -45,13 +45,14 @@ public class Login{
         m.changeScene("/signin.fxml", null, null, null);
     }
 
-    private void checkLogin() throws IOException{
+    private void checkLogin() throws IOException{ //when the login button is pressed the check login method is called
 
+        //checks if username and password exist in database
 
         boolean matched = false;
         String usernameStr = username.getText().toString(); //takes user inputted text from text box and stores it in String username
         String passwordStr = password.getText().toString();
-if((usernameStr.length() >0)&& (passwordStr.length() > 0)){
+        if((usernameStr.length() >0)&& (passwordStr.length() > 0)){ //ensures the username and password field is not blank
         try{
 
             FileReader fr = new FileReader("src/main/resources/login.txt");

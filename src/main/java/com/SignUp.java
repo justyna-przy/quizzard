@@ -63,17 +63,6 @@ public class SignUp extends JFrame {
 
 
 
-        /*public void writeSignup(String username, String password) {
-            try {
-                FileWriter fw = new FileWriter("login.txt", true);
-                fw.write(username+ "\t" + password + "\n"); //typed username and password will be written to login.txt
-                    // "\n" writes the next data to new line
-                fw.close();
-
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }*/
 
     public void writeSignup(String username, String password) {
         List<String> wordsInFirstColumn = new ArrayList<>();
@@ -90,9 +79,6 @@ public class SignUp extends JFrame {
                 fw2.write("\n" + username + ","); //typed username and password will be written to stats.csv
 
                 fw2.close();
-//----------
-//          //writes score to csv
-//          //TODO write score to csv from ----------------------------------------------------------
 
 
             } catch (Exception e) {

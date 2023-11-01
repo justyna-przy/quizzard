@@ -18,16 +18,18 @@ public class ScoreController {
 
     @FXML
     private Button nextStats;
-
     @FXML
     private Button exit, statsBtn, homeBtn;
 
-    public void goHome(javafx.event.ActionEvent event){
-
+    public void goHome(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("/home.fxml", null, null, null);
     }
 
 
-    public void goToStats(javafx.event.ActionEvent event) {
+    public void goToStats(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("/stats.fxml", null, null, null);
     }
 
 

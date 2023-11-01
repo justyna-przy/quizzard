@@ -8,3 +8,6 @@ Bob	ashe
 ss	ss
 aa	aa
 bb	bb
+cc	cc
+Tina	Tina
+Dawid	Dawid

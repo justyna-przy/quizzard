@@ -7,69 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Stats {
-
-
-    /*private String username;
-
-    public Stats(String username){
-        this.username = username;
-
-    }
-
-    public String getYourSD() {
-        return yourSD;
-    }
-
-    public void setYourSD(String yourSD) {
-        this.yourSD = yourSD;
-    }
-
-    public String getYourMedian() {
-        return yourMedian;
-    }
-
-    public void setYourMedian(String yourMedian) {
-        this.yourMedian = yourMedian;
-    }
-
-    public String getYourMean() {
-        return yourMean;
-    }
-
-    public void setYourMean(String yourMean) {
-        this.yourMean = yourMean;
-    }
-
-    public String getUserSD() {
-        return userSD;
-    }
-
-    public void setUserSD(String userSD) {
-        this.userSD = userSD;
-    }
-
-    public String getUserMedian() {
-        return userMedian;
-    }
-
-    public void setUserMedian(String userMedian) {
-        this.userMedian = userMedian;
-    }
-
-    public String getUserMean() {
-        return userMean;
-    }
-
-    public void setUserMean() {
-        this.userMean = calcUserMean;
-    }
-
+    /*
+        This Class contains the methods for calculating the means, medians and SD's.
 
      */
 
-
-    //TODO add to controller to display stats
-    //TODO make csv file for scores
     private List<UserScores> scores;
     public Stats(){
         scores = loadCSVScores();
@@ -257,7 +199,7 @@ public class Stats {
     public List<Double> findYourScore(String yourUsername){
         List<Double> yourScores = new ArrayList<>();
         try{
-            String filePath = "C:\\Users\\shado\\OneDrive - University of Limerick\\stats.csv";
+            String filePath = "src/main/resources/stats.csv";
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
 
             String line;

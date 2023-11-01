@@ -4,6 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
+/*
+    This Class is the most important class in the program, It is inherited by the two other QuizModels
+    (TopicModel, DifficultModel).
+    Defines the functionality of the Random quiz mode and Timer Mode.
+
+ */
+
 
 public class QuizModel {
 
@@ -16,7 +23,6 @@ public class QuizModel {
         Collections.shuffle(questions); // Shuffle questions.
         currentIndex = 0;
 
-        System.out.println("TOTAL QUESTIONS LOADED FROM CSV: " + questions.size());
     }
 
     public QuestionData getNextQuestion() {
@@ -61,8 +67,6 @@ public class QuizModel {
                     questionList.add(questionData);
                 }
                 else {
-                    System.out.println("MISSING COLUMNS?!");
-                    System.out.println(Arrays.toString(parts));
                 }
             }
             reader.close();

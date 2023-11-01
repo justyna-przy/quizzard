@@ -33,7 +33,7 @@ public class QuizController {
     @FXML
     private Label timer;
 
-    private QuizModel quizModel; // Add an instance of the QuizModel
+    private QuizModel quizModel;
     private QuizModel difficultModel;
     private QuizModel topicModel;
 
@@ -42,12 +42,15 @@ public class QuizController {
     @FXML
     private Button exit, statsBtn, homeBtn;
 
-    public void goHome(ActionEvent event){
-
+    public void goHome(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("/home.fxml", null, null, null);
     }
 
 
-    public void goToStats(ActionEvent event) {
+    public void goToStats(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("/stats.fxml", null, null, null);
     }
 
 
@@ -67,20 +70,20 @@ public class QuizController {
     @FXML
     public void initialize(String mode, String difficulty, String topic) {
         if ("Random".equals(mode)) {
-            quizModel = new QuizModel(); // Initialize the QuizModel for random mode
+            quizModel = new QuizModel();
             setQuizModel(quizModel);
             loadQuestion(quizModel);
         } else if ("Difficulty".equals(mode)) {
-            difficultModel = new DifficultModel(difficulty); // Initialize the DifficultModel for difficulty mode
+            difficultModel = new DifficultModel(difficulty);
             setQuizModel(difficultModel);
             loadQuestion(difficultModel);
         } else if ("Topic".equals(mode)) {
-            topicModel = new TopicModel(topic); // Initialize the DifficultModel for difficulty mode
+            topicModel = new TopicModel(topic);
             setQuizModel(topicModel);
             loadQuestion(topicModel);
         } else if ("Survival".equals(mode)) {
             startTimer();
-            quizModel = new QuizModel(); // Initialize the QuizModel for random mode
+            quizModel = new QuizModel();
             setQuizModel(quizModel);
             loadQuestion(quizModel);
 
@@ -124,7 +127,6 @@ public class QuizController {
         }
         else if(userChoice.equals(currentQuestion.getCorrectAnswer())){
             score.incScore();
-            System.out.println("new score: " + score.getScore());
         }
         userChoice = null;
         questionNum++;
@@ -178,10 +180,7 @@ public class QuizController {
             btn.setSelected(false);
         }
 
-        //RadioButton[] radoptions = { opt1, opt2, opt3, opt4 };
-        //for(int i = 0; i < radoptions.length; i++){
-           // radoptions[i].setSelected(false);
-        //}
+
     }
 
     @FXML

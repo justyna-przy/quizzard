@@ -44,9 +44,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ImageView fitHeight="125.0" fitWidth="200.0" layoutX="57.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="125.0" fitWidth="200.0" layoutX="67.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="128.0" fitWidth="346.0" layoutX="-7.0" layoutY="5.0">
+            <ImageView fitHeight="128.0" fitWidth="346.0">
                <image>
                   <Image url="@quizfinallogo.png" />
                </image>

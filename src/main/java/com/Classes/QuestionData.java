@@ -13,7 +13,7 @@ public class QuestionData {
     private String difficulty; // Add a difficulty field.
 
     private String topic;
-    //TODO: add topic to question data and implement quiz topic mode
+
 
     public QuestionData(String question, List<String> options, String correctAnswer, String difficulty, String topic) {
         this.question = question;

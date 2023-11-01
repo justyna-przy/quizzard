@@ -11,9 +11,6 @@ public class TopicModel extends QuizModel{
     public TopicModel(String topic) {
         super();
 
-        System.out.println("QUESTIONS NOW: " + questions.size());
-        System.out.println("THIS Q? " + this.questions.size());
-
         this.questions = loadDiff(topic);
         Collections.shuffle(this.questions);
         currentIndex = 0;
@@ -24,7 +21,6 @@ public class TopicModel extends QuizModel{
 
         List<QuestionData> filteredQuestions = new ArrayList<>();
 
-        System.out.println("ALL QUESTIONS COUNT:" + this.questions.size());
 
         for (QuestionData question : this.questions) {
             if (question.getTopic().equals(topic)) {
