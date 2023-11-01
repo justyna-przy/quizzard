@@ -78,26 +78,27 @@ public class SignUp extends JFrame {
     public void writeSignup(String username, String password) {
         List<String> wordsInFirstColumn = new ArrayList<>();
 
-        try {
-            FileWriter fw = new FileWriter("login.txt", true);
-            fw.write(username + "\t" + password + "\n"); //typed username and password will be written to login.txt
-            // "\n" writes the next data to new line
-            fw.close();
+        if ((username.length() > 0) && (password.length() > 0)) {
+            try {
+                FileWriter fw = new FileWriter("src/main/resources/login.txt", true);
+                fw.write("\n" + username + "\t" + password); //typed username and password will be written to login.txt
+                // "\n" writes the next data to new line
+                fw.close();
 
-            //writing to STATS.CSV
-            FileWriter fw2 = new FileWriter("src/main/resources/stats.csv", true);
-            fw2.write("\n" + username + ","); //typed username and password will be written to stats.csv
+                //writing to STATS.CSV
+                FileWriter fw2 = new FileWriter("src/main/resources/stats.csv", true);
+                fw2.write("\n" + username + ","); //typed username and password will be written to stats.csv
 
-            fw2.close();
+                fw2.close();
 //----------
 //          //writes score to csv
 //          //TODO write score to csv from ----------------------------------------------------------
 
 
-        }catch (Exception e){
+            } catch (Exception e) {
+            }
         }
     }
-
 
 
 }

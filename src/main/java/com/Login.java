@@ -51,15 +51,14 @@ public class Login{
         boolean matched = false;
         String usernameStr = username.getText().toString(); //takes user inputted text from text box and stores it in String username
         String passwordStr = password.getText().toString();
-
+if((usernameStr.length() >0)&& (passwordStr.length() > 0)){
         try{
 
-            FileReader fr = new FileReader("login.txt");
+            FileReader fr = new FileReader("src/main/resources/login.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             while((line = br.readLine()) != null){ //reads all the lines up until they become null
-                if(line.equals(usernameStr + "\t" + passwordStr)){ //if the read line matches the user and password
-
+                if(line.equals(usernameStr + "\t" + passwordStr)){
                     currentUser.setUsername(usernameStr);
                     matched = true;
                     break;
@@ -87,9 +86,10 @@ public class Login{
 
         //add else if for empty password field and text field
 
+
     }
 
-
+}
 }
 
 
