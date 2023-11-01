@@ -1,5 +1,6 @@
 package com;
 
+import com.Classes.CurrentUser;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +13,16 @@ import java.io.IOException;
 public class Main extends Application {
 
     private static Stage stg;
+    private static CurrentUser currentUser;
+
+
+    public static CurrentUser getCurrentUser() {
+        return currentUser;
+    }
+
+    public static void setCurrentUser(CurrentUser user) {
+        currentUser = user;
+    }
 
     @Override
     public void start(Stage stage) throws IOException {

@@ -92,28 +92,7 @@ public class SignUp extends JFrame {
 //----------
 //          //writes score to csv
 //          //TODO write score to csv from ----------------------------------------------------------
-            int scoreCount = 5;
-            FileWriter fw3 = new FileWriter("src/main/resources/stats.csv", true);
 
-            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/stats.csv"));
-            String line;
-
-
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length > 0) {
-                    String usernameInStorage = parts[0].trim(); // Assign value to 'usernameInStorage'
-                    wordsInFirstColumn.add(usernameInStorage);
-                }
-
-                for (String word : wordsInFirstColumn) {
-                    if (word.equals(username)) {
-                        fw3.write(scoreCount + ",");
-                        break;
-                    }
-                }
-            }
-            fw3.close();
 
         }catch (Exception e){
         }

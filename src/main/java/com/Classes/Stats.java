@@ -332,16 +332,20 @@ public class Stats {
             return roundedValue;
 
         } else {
+            return 3;
+
 
             // If the number of scores is even, calculate the average of the two middle values
 
-            int middle = size / 2;
+            /*int middle = size / 2;
 
             double median = (sortedScores.get(middle - 1) + sortedScores.get(middle)) / 2.0;
 
             DecimalFormat df = new DecimalFormat("0.0");
             double roundedValue = Double.parseDouble(df.format(median));
-            return roundedValue;
+            */
+            //TODO fix the median bug
+
         }
 
     }

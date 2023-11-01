@@ -2,6 +2,7 @@ package com;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
+import com.Classes.CurrentUser;
 import com.Classes.QuizModel;
 import com.Main;
 import javafx.fxml.FXML;
@@ -30,6 +31,7 @@ public class Login{
     @FXML
     private Label errorMessage;
 
+    CurrentUser currentUser = new CurrentUser();
 
 
 
@@ -57,6 +59,8 @@ public class Login{
             String line;
             while((line = br.readLine()) != null){ //reads all the lines up until they become null
                 if(line.equals(usernameStr + "\t" + passwordStr)){ //if the read line matches the user and password
+
+                    currentUser.setUsername(usernameStr);
                     matched = true;
                     break;
                 }
@@ -71,6 +75,7 @@ public class Login{
 
 
         if(matched){
+            Main.setCurrentUser(currentUser);
             Main m = new Main();
             m.changeScene("/home.fxml", null, null, null);
 
