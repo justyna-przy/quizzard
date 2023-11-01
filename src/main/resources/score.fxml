@@ -80,7 +80,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="445.0" layoutY="470.0" text="Out of 6" textFill="#9d8df1">
+            <Label layoutX="389.0" layoutY="469.0" text="Answered Correctly" textFill="#9d8df1">
                <font>
                   <Font name="Calibri Bold" size="24.0" />
                </font>
