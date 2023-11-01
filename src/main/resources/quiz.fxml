@@ -113,6 +113,11 @@
                   <Image url="@quizzard1.png" />
                </image>
             </ImageView>
+            <Label fx:id="timer" layoutX="317.0" layoutY="46.0" text="You have 30 Seconds left!" textFill="#9d8df1">
+               <font>
+                  <Font name="Calibri Bold" size="36.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>

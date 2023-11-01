@@ -25,7 +25,10 @@ public class HomeController {
         m.changeScene("/difficulty.fxml", null, null, null);
 
     }
-    public void startSurvival(){
+    public void startSurvival() throws IOException {
+
+        Main m = new Main();
+        m.changeScene("/quiz.fxml", "Survival", null, null);
 
     }
 }

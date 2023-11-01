@@ -30,6 +30,9 @@ public class QuizController {
     @FXML
     private ToggleGroup optionToggle;
 
+    @FXML
+    private Label timer;
+
     private QuizModel quizModel; // Add an instance of the QuizModel
     private QuizModel difficultModel;
     private QuizModel topicModel;
@@ -58,6 +61,8 @@ public class QuizController {
 
     QuizModel quizMode;
 
+    private Timer timerInstance;
+    private int secondsRemaining = 30;
 
     @FXML
     public void initialize(String mode, String difficulty, String topic) {
@@ -74,12 +79,37 @@ public class QuizController {
             setQuizModel(topicModel);
             loadQuestion(topicModel);
         } else if ("Survival".equals(mode)) {
-            // Initialize the quiz model for survival mode, if needed
-            // Add your logic here
+            startTimer();
+            quizModel = new QuizModel(); // Initialize the QuizModel for random mode
+            setQuizModel(quizModel);
+            loadQuestion(quizModel);
+
         }
 
 
 
+    }
+
+    private void startTimer() {
+        timerInstance = new Timer();
+        timerInstance.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                // Update the timer UI or perform actions at every tick
+                if (secondsRemaining > 0) {
+                    Platform.runLater(() -> timer.setText("You have "+ secondsRemaining + " Seconds left!"));
+                    secondsRemaining--;
+                } else {
+                    // Timer expired, handle quiz finish
+
+                    try {
+                        timerInstance.cancel();
+                        ScoreHandler.setScore(score.getScore());
+                        scorePage();
+                    } catch (IOException e) {
+                    }
+                }
+            }
+        }, 1000, 1000); // 1000ms = 1 second
     }
 
     private void setQuizModel(QuizModel quizModel) {
