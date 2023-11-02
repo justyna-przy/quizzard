@@ -1,6 +1,6 @@
 package com.Classes;
 
-public class CurrentUser {
+public class CurrentUser { //class that represents the user that is currently logged in
     private String username;
 
     public String getUsername(){

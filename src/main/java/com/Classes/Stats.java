@@ -14,13 +14,17 @@ public class Stats {
 
     private List<UserScores> scores;
     public Stats(){
+
         scores = loadCSVScores();
     }
 
+
+    //loads all the csv scores from csv file and adds them to a List
     public List<UserScores> loadCSVScores() {
+
         List<UserScores> userScoreList = new ArrayList<>();
         try{
-            String filePath = "src/main/resources/stats.csv"; //TODO put path
+            String filePath = "src/main/resources/stats.csv";
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
 
             String line;

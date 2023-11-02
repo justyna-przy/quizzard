@@ -27,7 +27,7 @@ public class QuizModel {
 
     public QuestionData getNextQuestion() {
         if (currentIndex < questions.size()) {
-            return questions.get(currentIndex++);
+            return questions.get(currentIndex++); //List<QuestionData> questions.get(i) gets the next question from the List
         }
         return null; // No more questions.
     }
@@ -35,7 +35,7 @@ public class QuizModel {
 
 
 
-    private List<QuestionData> loadFromCSV(){
+    private List<QuestionData> loadFromCSV(){ //loading the questions from the csv and adding them to a List
         List<QuestionData> questionList = new ArrayList<>();
         try {
             String filePath = "src/main/resources/questionbank.csv";
@@ -53,6 +53,7 @@ public class QuizModel {
                     String topic = parts[5].trim();
                     String diff = parts[6].trim();
 
+                    //adding the options to string list options
                     List<String> options = new ArrayList<>();
                     options.add(ans1);
                     options.add(ans2);
@@ -62,7 +63,7 @@ public class QuizModel {
                     // Shuffle the answer options.
                     Collections.shuffle(options);
 
-                    // Create a QuestionData object and add it to the list.
+                    // Create a new QuestionData object and add it to the <QuestionData> list.
                     QuestionData questionData = new QuestionData(question, options, ans1, diff, topic);
                     questionList.add(questionData);
                 }
@@ -75,7 +76,7 @@ public class QuizModel {
             e.printStackTrace();
         }
 
-        return questionList;
+        return questionList; //returning the list of QuestionData objects
     }
 
 }

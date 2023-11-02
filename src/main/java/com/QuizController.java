@@ -39,6 +39,8 @@ public class QuizController {
 
     private QuestionData currentQuestion;
 
+
+
     @FXML
     private Button exit, statsBtn, homeBtn;
 
@@ -57,6 +59,9 @@ public class QuizController {
     public void exitApp(ActionEvent event){
         Platform.exit();
     }
+
+
+
 
     Score score = new Score();
     String userChoice;
@@ -186,9 +191,7 @@ public class QuizController {
     @FXML
     public void opt1clicked(ActionEvent event){
         userChoice = opt1.getText();
-
     }
-
     @FXML
     public void opt2clicked(ActionEvent event){
         userChoice = opt2.getText();

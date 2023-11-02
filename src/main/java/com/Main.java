@@ -24,24 +24,29 @@ import java.io.IOException;
 public class Main extends Application {
 
     private static Stage stg;
+
+    //current user must be created in main method to be accessed from any class/controller
     private static CurrentUser currentUser;
 
 
     public static CurrentUser getCurrentUser() {
+
         return currentUser;
     }
 
     public static void setCurrentUser(CurrentUser user) {
+
         currentUser = user;
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException { //jfx starting point
         stg = stage;
         stage.setResizable(false);
 
         //this sets the initial scene to the login scene, it is the first thing the user sees
         Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+
 
         stage.setTitle("Quizzard");
         stage.setScene(new Scene(root, 1024 ,768));
@@ -64,7 +69,7 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent root = loader.load();
             StatsController controller = loader.getController();
-            controller.initializeStats();
+            controller.initializeStats(); //inti stats on loading of scene
             stg.getScene().setRoot(root);
 
         } else {

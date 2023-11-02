@@ -2,15 +2,11 @@ package com.Classes;
 
 import java.util.List;
 
-
-
-
-
-public class QuestionData {
+public class QuestionData { //class that represents a question in the quiz with its options.
     private String question;
     private List<String> options;
     private String correctAnswer;
-    private String difficulty; // Add a difficulty field.
+    private String difficulty;
 
     private String topic;
 
