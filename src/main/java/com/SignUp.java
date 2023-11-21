@@ -35,6 +35,9 @@ public class SignUp extends JFrame {
     private PasswordField password;
 
     @FXML
+    private TextField email;
+
+    @FXML
     private PasswordField confirmpass;
 
     @FXML
@@ -46,31 +49,56 @@ public class SignUp extends JFrame {
 
         public void checkPassword() throws IOException{
             String usernm = username.getText().toString();
-            String pass = password.getText().toString(); //takes user inputted text from text box and stores it in String username
+            String pass = password.getText().toString();
+            String enteredEmail = email.getText().toString();
+
             String confirm = confirmpass.getText().toString();
 
 
-            if(pass.equals(confirm) && pass.length() < 30){
-                writeSignup(usernm, pass);
-                Main n = new Main();
-                n.changeScene("/login.fxml", null, null, null);
+            if (pass.equals(confirm) && pass.length() < 30) {
 
+                if (!isUsernameTaken(usernm)) {
 
-            }else{
+                    writeSignup(usernm, pass, enteredEmail);
+                    Main n = new Main();
+                    n.changeScene("/login.fxml", null, null, null);
+
+                } else {
+                    errorMessage.setText("Username already taken. Please choose a different username.");
+                }
+            } else {
                 errorMessage.setText("Passwords do not match!");
             }
         }
 
+    private boolean isUsernameTaken(String username) throws IOException {
+        FileReader fr = new FileReader("src/main/resources/login.txt");
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+
+        while ((line = br.readLine()) != null) {
+            String[] parts = line.split("\t");
+
+
+            if (parts.length == 3 && parts[0].equals(username)) {
+                fr.close();
+                return true; // Username already exists sadly
+            }
+        }
+        fr.close();
+        return false; // Username is available
+    }
 
 
 
-    public void writeSignup(String username, String password) {
+
+    public void writeSignup(String username, String password, String enteredEmail) {
         List<String> wordsInFirstColumn = new ArrayList<>();
 
-        if ((username.length() > 0) && (password.length() > 0)) {
+        if ((username.length() > 0) && (password.length() > 0)&& (enteredEmail.length() > 0 && (username.length() < 30) && (password.length() < 30)&& (enteredEmail.length() < 30) )) {
             try {
                 FileWriter fw = new FileWriter("src/main/resources/login.txt", true);
-                fw.write("\n" + username + "\t" + password); //typed username and password will be written to login.txt
+                fw.write("\n" + username + "\t" + password + "\t" + enteredEmail); //typed username and password will be written to login.txt
                 // "\n" writes the next data to new line
                 fw.close();
 

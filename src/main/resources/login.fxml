@@ -30,7 +30,7 @@
          <children>
             <Label layoutX="47.0" layoutY="304.0" text="Username" textFill="#5a02b2">
                <font>
-                  <Font name="Calibri Bold" size="30.0" />
+                  <Font name="Neue Haas Grotesk Text Pro Italic" size="30.0" />
                </font>
             </Label>
             <Label layoutX="47.0" layoutY="397.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Password" textFill="#5a02b2">
@@ -54,17 +54,17 @@
                   <Blend />
                </effect>
             </PasswordField>
-            <Button fx:id="signinButton" layoutX="322.0" layoutY="626.0" mnemonicParsing="false" onAction="#userSignIn" prefHeight="76.0" prefWidth="176.0" style="-fx-background-color: #5A02B2;" text="Sign up?" textFill="FLORALWHITE">
+            <Button fx:id="signinButton" layoutX="322.0" layoutY="626.0" mnemonicParsing="false" onAction="#userSignIn" prefHeight="76.0" prefWidth="176.0" style="-fx-background-color: #5A02B2;" text="SIGN UP" textFill="FLORALWHITE">
                <font>
-                  <Font name="Calibri Bold" size="34.0" />
+                  <Font name="NeueHaasDisplay-Mediu" size="34.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="loginButton" layoutX="77.0" layoutY="627.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="76.0" prefWidth="176.0" style="-fx-background-color: #5A02B2;" text="Login" textFill="FLORALWHITE">
+            <Button fx:id="loginButton" layoutX="77.0" layoutY="627.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="76.0" prefWidth="176.0" style="-fx-background-color: #5A02B2;" text="LOGIN" textFill="FLORALWHITE">
                <font>
-                  <Font name="Calibri Bold" size="34.0" />
+                  <Font name="NeueHaasDisplay-Mediu" size="34.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -75,9 +75,9 @@
                   <Font name="Calibri Bold" size="29.0" />
                </font>
             </Text>
-            <Text fill="#5a02b2" layoutX="62.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login to Quizzard" textAlignment="CENTER">
+            <Text fill="#5a02b2" layoutX="39.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login to Quizzard" textAlignment="CENTER">
                <font>
-                  <Font name="Calibri Bold" size="65.0" />
+                  <Font name="NeueHaasDisplay-Mediu" size="67.0" />
                </font>
             </Text>
             <Label fx:id="errorMessage" layoutX="195.0" layoutY="571.0" prefHeight="18.0" prefWidth="216.0" textFill="#260069" />

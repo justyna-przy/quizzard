@@ -79,8 +79,20 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        // Launch the JavaFX application
         launch(args);
 
+        // Get the current user after the JavaFX application has launched
+        CurrentUser currentUser = getCurrentUser();
+
+        // If the current user exists, get the email and send the email
+        if (currentUser != null) {
+            String currentUserEmail = currentUser.getEmail();
+            System.out.println("oi oi " + currentUserEmail);
+            HotmailMailTest.emailSend(currentUserEmail);
+        } else {
+            System.out.println("No user logged in.");
+        }
     }
 
 }

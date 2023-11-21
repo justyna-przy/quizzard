@@ -1,4 +1,5 @@
 package com;
+
 import java.io.FileReader;
 import java.io.BufferedReader;
 
@@ -14,7 +15,11 @@ import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
-public class Login{
+/**
+ * The Login class manages user authentication and controls the login UI elements.
+ * It handles user input, checks login credentials, and initiates scene changes accordingly.
+ */
+public class Login {
 
     @FXML
     private Button loginButton;
@@ -31,68 +36,74 @@ public class Login{
     @FXML
     private Label errorMessage;
 
+    private String emailStr;
+
+    // Represents the currently logged-in user.
     CurrentUser currentUser = new CurrentUser();
 
-
-
-    public void userLogin(ActionEvent event) throws IOException
-    {
+    /**
+     * Triggered when the login button is pressed.
+     * Calls the checkLogin method to authenticate the user.
+     *
+     * @param event The ActionEvent associated with the button press.
+     * @throws IOException If an I/O error occurs during login processing.
+     */
+    public void userLogin(ActionEvent event) throws IOException {
         checkLogin();
     }
 
-    public void userSignIn(ActionEvent event) throws IOException{
+    /**
+     * Initiates the process of user sign-in by changing the scene to the sign-in view.
+     *
+     * @param event The ActionEvent associated with the button press.
+     * @throws IOException If an I/O error occurs during scene transition.
+     */
+    public void userSignIn(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("/signin.fxml", null, null, null);
     }
 
-    private void checkLogin() throws IOException{ //when the login button is pressed the check login method is called
-
-        //checks if username and password exist in database
-
+    /**
+     * Validates user login credentials by checking against the data in the login database.
+     * If credentials are valid, updates the current user information and transitions to the home view.
+     *
+     * @throws IOException If an I/O error occurs during login credential verification.
+     */
+    private void checkLogin() throws IOException {
         boolean matched = false;
-        String usernameStr = username.getText().toString(); //takes user inputted text from text box and stores it in String username
+        String usernameStr = username.getText().toString();
         String passwordStr = password.getText().toString();
-        if((usernameStr.length() >0)&& (passwordStr.length() > 0)){ //ensures the username and password field is not blank
-        try{
 
-            FileReader fr = new FileReader("src/main/resources/login.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String line;
-            while((line = br.readLine()) != null){ //reads all the lines up until they become null
-                if(line.equals(usernameStr + "\t" + passwordStr)){
-                    currentUser.setUsername(usernameStr);
-                    matched = true;
-                    break;
+        if ((usernameStr.length() > 0) && (passwordStr.length() > 0)) {
+            try {
+                FileReader fr = new FileReader("src/main/resources/login.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String line;
+
+                while ((line = br.readLine()) != null) {
+                    String[] parts = line.split("\t");
+
+                    // Assuming the format is "username\tpassword\temail"
+                    if (parts.length == 3 && parts[0].equals(usernameStr) && parts[1].equals(passwordStr)) {
+                        currentUser.setUsername(usernameStr);
+                        currentUser.setEmail(parts[2]);
+                        matched = true;
+                        break;
+                    }
                 }
+                fr.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            fr.close();
-        }catch (Exception e){
-            e.printStackTrace();
+
+            if (matched) {
+                Main.setCurrentUser(currentUser);
+
+                Main m = new Main();
+                m.changeScene("/home.fxml", null, null, null);
+            } else {
+                errorMessage.setText("Sorry, Incorrect username or password");
+            }
         }
-
-
-
-
-
-        if(matched){
-            Main.setCurrentUser(currentUser);
-            Main m = new Main();
-            m.changeScene("/home.fxml", null, null, null);
-
-
-
-        }else{
-            errorMessage.setText("Sorry, Incorrect username or password");
-        }
-
-        //add else if for empty password field and text field
-
-
     }
-
 }
-}
-
-
-
-

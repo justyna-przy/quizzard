@@ -336,4 +336,16 @@ public class Stats {
 
     }
 
+    public double getUserMean() {
+        return calcUserMean();
+    }
+
+    // Getter for the calculated user median
+    public double getUserMedian() {
+        return calcUserMedian();
+    }
+
+    public double getUserSD() {
+        return calcUserSD();
+    }
 }
